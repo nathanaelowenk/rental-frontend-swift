@@ -1,0 +1,15 @@
+{
+  "originHash" : "4b01aed128fa59c568d639512c9f1497d80fb6b235d8c6b3b5dd065967c185a0",
+  "pins" : [
+    {
+      "identity" : "veritrans-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/veritrans/Veritrans-ios-sdk",
+      "state" : {
+        "branch" : "master",
+        "revision" : "51414b179a91fde1844f90989971a34cbf1dbf2a"
+      }
+    }
+  ],
+  "version" : 3
+}
