@@ -14,10 +14,17 @@ struct RentalResponse: Codable {
     let paymentUrl: String
 }
 
+
+struct BookAccessResponse: Codable {
+    let message: String
+    let content: String
+}
+
+
 class APIService {
     static let shared = APIService()
     private var baseURL = "http://localhost:3010"
-    private var rentBaseURL = "https://97b0-2a09-bac5-3a27-88c-00-da-7e.ngrok-free.app"
+    private var rentBaseURL = "https://35ff-20-2-202-8.ngrok-free.app"
     private var authToken: String?
     
     private init() {}
@@ -26,7 +33,7 @@ class APIService {
         rentBaseURL = url
     }
     
-    func setAuthToken(_ token: String) {
+    func setAuthToken(_ token: String?) {
         self.authToken = token
     }
     
@@ -49,7 +56,7 @@ class APIService {
         return request
     }
     
-    func login(username: String, password: String) async throws -> User {
+    func login(username: String, password: String) async throws -> LoginResponse {
         let loginRequest = LoginRequest(username: username, password: password)
         let jsonData = try JSONEncoder().encode(loginRequest)
         
@@ -67,13 +74,13 @@ class APIService {
         do {
             let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
             setAuthToken(loginResponse.token)
-            return loginResponse.user
+            return loginResponse
         } catch {
             throw APIError.decodingError(error)
         }
     }
     
-    func register(username: String, password: String) async throws -> User {
+    func register(username: String, password: String) async throws -> RegisterResponse {
         let registerRequest = RegisterRequest(username: username, password: password)
         let jsonData = try JSONEncoder().encode(registerRequest)
         
@@ -91,7 +98,7 @@ class APIService {
         do {
             let registerResponse = try JSONDecoder().decode(RegisterResponse.self, from: data)
             setAuthToken(registerResponse.token)
-            return registerResponse.trimmedUser
+            return registerResponse
         } catch {
             throw APIError.decodingError(error)
         }
@@ -201,5 +208,35 @@ class APIService {
         }
         
         return try JSONDecoder().decode([RentedBook].self, from: data)
+    }
+    
+    func fetchTransactionHistory() async throws -> TransactionHistoryResponse {
+        guard let request = createRequest("/rent/history", method: "GET", useRentURL: true) else {
+            throw APIError.invalidURL
+        }
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              httpResponse.statusCode == 200 else {
+            throw APIError.invalidResponse
+        }
+        
+        return try JSONDecoder().decode(TransactionHistoryResponse.self, from: data)
+    }
+    
+    func getBookAccess(bookId: Int) async throws -> BookAccessResponse {
+        guard let request = createRequest("/items/\(bookId)/access", method: "GET") else {
+            throw APIError.invalidURL
+        }
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              httpResponse.statusCode == 200 else {
+            throw APIError.invalidResponse
+        }
+        
+        return try JSONDecoder().decode(BookAccessResponse.self, from: data)
     }
 }

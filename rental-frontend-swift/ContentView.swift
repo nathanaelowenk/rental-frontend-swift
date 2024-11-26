@@ -13,18 +13,20 @@ struct ContentView: View {
     @State private var path = NavigationPath()
     
     var body: some View {
-        if viewModel.currentUser == nil {
-            LoginView()
-        } else {
-            NavigationSplitView {
-                Sidebar(selection: $selection)
-            } detail: {
-                NavigationStack(path: $path) {
-                    DetailColumn(selection: selection)
+        Group {
+            if !viewModel.isAuthenticated {
+                LoginView()
+            } else {
+                NavigationSplitView {
+                    Sidebar(selection: $selection)
+                } detail: {
+                    NavigationStack(path: $path) {
+                        DetailColumn(selection: selection)
+                    }
                 }
-            }
-            .onChange(of: selection) { _ in
-                path.removeLast(path.count)
+                .onChange(of: selection) { _ in
+                    path.removeLast(path.count)
+                }
             }
         }
     }
@@ -40,6 +42,8 @@ struct DetailColumn: View {
                 BookListView()
             case .rentals:
                 RentalsView()
+            case .history:
+                HistoryView()
             case .account:
                 AccountView()
             }

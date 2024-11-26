@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WebKit
+import UserNotifications
 
 @main
 struct rental_frontend_swiftApp: App {
@@ -14,6 +15,8 @@ struct rental_frontend_swiftApp: App {
     
     init() {
         _ = WKWebView()
+        
+        UNUserNotificationCenter.current().delegate = NotificationHandler.shared
     }
     
     var body: some Scene {
@@ -21,5 +24,17 @@ struct rental_frontend_swiftApp: App {
             ContentView()
                 .environmentObject(viewModel)
         }
+    }
+}
+
+class NotificationHandler: NSObject, UNUserNotificationCenterDelegate {
+    static let shared = NotificationHandler()
+    
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+    ) {
+        completionHandler([.banner, .sound])
     }
 }

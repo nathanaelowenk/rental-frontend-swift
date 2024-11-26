@@ -47,7 +47,7 @@ struct AccountView: View {
             
             Section("SETTINGS") {
                 Button(action: {
-                    viewModel.currentUser = nil
+                    viewModel.signOut()
                 }) {
                     Label("Sign Out", systemImage: "rectangle.portrait.and.arrow.right")
                         .foregroundColor(.red)

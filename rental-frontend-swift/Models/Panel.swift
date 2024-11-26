@@ -1,5 +1,5 @@
-enum Panel: Hashable {
-    case library
-    case rentals
-    case account
-} 
+//enum Panel: Hashable {
+//    case library
+//    case rentals
+//    case account
+//} 

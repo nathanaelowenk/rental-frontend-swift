@@ -62,4 +62,4 @@ struct RentedBook: Codable, Identifiable {
         }
         return rentedAt
     }
-} 
+}

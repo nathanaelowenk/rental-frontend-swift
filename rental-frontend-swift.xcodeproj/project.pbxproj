@@ -14,6 +14,8 @@
 		30037AD62CE48CD700E12BA0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30037AD52CE48CD700E12BA0 /* WebKit.framework */; };
 		30037AD72CE48CDC00E12BA0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30037AD52CE48CD700E12BA0 /* WebKit.framework */; };
 		3077F7372CEB2EA000B120ED /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077F7362CEB2EA000B120ED /* Sidebar.swift */; };
+		3077F7392CEC307C00B120ED /* TransactionHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077F7382CEC307C00B120ED /* TransactionHistory.swift */; };
+		3077F73B2CEC30CB00B120ED /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3077F73A2CEC30CB00B120ED /* HistoryView.swift */; };
 		3084FC832CD75D7600A15FAC /* rental_frontend_swiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084FC822CD75D7600A15FAC /* rental_frontend_swiftApp.swift */; };
 		3084FC852CD75D7600A15FAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084FC842CD75D7600A15FAC /* ContentView.swift */; };
 		3084FC872CD75D7700A15FAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3084FC862CD75D7700A15FAC /* Assets.xcassets */; };
@@ -34,8 +36,11 @@
 		3084FCC52CD7629E00A15FAC /* RentalRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084FCC12CD7629E00A15FAC /* RentalRowView.swift */; };
 		3089F62F2CD9D42F00B4E150 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3089F62E2CD9D42F00B4E150 /* Panel.swift */; };
 		3089F6312CD9D48800B4E150 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3089F6302CD9D48800B4E150 /* AccountView.swift */; };
+		308A5E1E2CEEC60000356D94 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308A5E1D2CEEC60000356D94 /* NotificationManager.swift */; };
 		30A8D90A2CE58FF6003FE5FE /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A8D9092CE58FF6003FE5FE /* Transaction.swift */; };
 		30A8D90E2CE59054003FE5FE /* PaymentResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A8D90D2CE59054003FE5FE /* PaymentResultView.swift */; };
+		30D1400D2CEC3EE2006052A2 /* ReadingWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D1400C2CEC3EE2006052A2 /* ReadingWebView.swift */; };
+		30F87E3B2CECADAD00B90801 /* BookContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F87E3A2CECADAC00B90801 /* BookContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +67,8 @@
 		3070D7902CE47F86007EC1B4 /* libswiftWebKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWebKit.tbd; path = usr/lib/swift/libswiftWebKit.tbd; sourceTree = SDKROOT; };
 		3070D7912CE47F86007EC1B4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3077F7362CEB2EA000B120ED /* Sidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		3077F7382CEC307C00B120ED /* TransactionHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionHistory.swift; sourceTree = "<group>"; };
+		3077F73A2CEC30CB00B120ED /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		3084FC7F2CD75D7600A15FAC /* rental-frontend-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rental-frontend-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3084FC822CD75D7600A15FAC /* rental_frontend_swiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rental_frontend_swiftApp.swift; sourceTree = "<group>"; };
 		3084FC842CD75D7600A15FAC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,8 +92,11 @@
 		3084FCC12CD7629E00A15FAC /* RentalRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentalRowView.swift; sourceTree = "<group>"; };
 		3089F62E2CD9D42F00B4E150 /* Panel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 		3089F6302CD9D48800B4E150 /* AccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		308A5E1D2CEEC60000356D94 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		30A8D9092CE58FF6003FE5FE /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		30A8D90D2CE59054003FE5FE /* PaymentResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentResultView.swift; sourceTree = "<group>"; };
+		30D1400C2CEC3EE2006052A2 /* ReadingWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingWebView.swift; sourceTree = "<group>"; };
+		30F87E3A2CECADAC00B90801 /* BookContentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +203,7 @@
 		3084FCAF2CD75F2800A15FAC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3077F7382CEC307C00B120ED /* TransactionHistory.swift */,
 				30A8D9092CE58FF6003FE5FE /* Transaction.swift */,
 				3089F62E2CD9D42F00B4E150 /* Panel.swift */,
 				3084FCAC2CD75F2800A15FAC /* Book.swift */,
@@ -205,6 +216,7 @@
 		3084FCB12CD75F2800A15FAC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				308A5E1D2CEEC60000356D94 /* NotificationManager.swift */,
 				3084FCB02CD75F2800A15FAC /* APIService.swift */,
 			);
 			path = Services;
@@ -213,6 +225,7 @@
 		3084FCB32CD75F2800A15FAC /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				30F87E3A2CECADAC00B90801 /* BookContentViewModel.swift */,
 				3084FCB22CD75F2800A15FAC /* AppViewModel.swift */,
 			);
 			path = ViewModels;
@@ -221,6 +234,8 @@
 		3084FCBB2CD7612800A15FAC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				30D1400C2CEC3EE2006052A2 /* ReadingWebView.swift */,
+				3077F73A2CEC30CB00B120ED /* HistoryView.swift */,
 				30A8D90D2CE59054003FE5FE /* PaymentResultView.swift */,
 				30037AD22CE48BA800E12BA0 /* PaymentWebView.swift */,
 				3089F6302CD9D48800B4E150 /* AccountView.swift */,
@@ -385,6 +400,7 @@
 				30A8D90E2CE59054003FE5FE /* PaymentResultView.swift in Sources */,
 				3084FCC32CD7629E00A15FAC /* RentalsView.swift in Sources */,
 				3089F6312CD9D48800B4E150 /* AccountView.swift in Sources */,
+				3077F73B2CEC30CB00B120ED /* HistoryView.swift in Sources */,
 				3084FC852CD75D7600A15FAC /* ContentView.swift in Sources */,
 				3084FCB52CD75F2800A15FAC /* Rental.swift in Sources */,
 				3084FCBD2CD7612800A15FAC /* LoginView.swift in Sources */,
@@ -394,10 +410,14 @@
 				3084FC832CD75D7600A15FAC /* rental_frontend_swiftApp.swift in Sources */,
 				30037AD32CE48BA800E12BA0 /* PaymentWebView.swift in Sources */,
 				30A8D90A2CE58FF6003FE5FE /* Transaction.swift in Sources */,
+				30F87E3B2CECADAD00B90801 /* BookContentViewModel.swift in Sources */,
+				3077F7392CEC307C00B120ED /* TransactionHistory.swift in Sources */,
 				3084FCB62CD75F2800A15FAC /* User.swift in Sources */,
 				3084FCC52CD7629E00A15FAC /* RentalRowView.swift in Sources */,
 				3077F7372CEB2EA000B120ED /* Sidebar.swift in Sources */,
+				30D1400D2CEC3EE2006052A2 /* ReadingWebView.swift in Sources */,
 				30037AD12CE48AFE00E12BA0 /* WebView.swift in Sources */,
+				308A5E1E2CEEC60000356D94 /* NotificationManager.swift in Sources */,
 				3084FCB72CD75F2800A15FAC /* APIService.swift in Sources */,
 				3084FCB42CD75F2800A15FAC /* Book.swift in Sources */,
 			);

@@ -9,11 +9,25 @@ struct BookDetailView: View {
     @State private var rentLength = 5 // Default rental length
     @State private var showingPaymentSheet = false
     @State private var rentDuration: Int = 0 // Add this state variable
+    @State private var showingReadingSheet = false
+    @State private var bookAccessUrl: URL?
+    
+    @StateObject private var bookContentViewModel = BookContentViewModel()
     
     var isRented: Bool {
-        viewModel.rentals.contains { rental in
-            rental.bookId == book.id && rental.isActive
+        print("\n=== Checking if book is rented ===")
+        print("Book ID: \(book.id)")
+        print("Book Title: \(book.title)")
+        print("Rentals count: \(viewModel.rentals.count)")
+        print("Rentals: \(viewModel.rentals)")
+        
+        let isRented = viewModel.rentals.contains { rental in
+            print("Checking rental - Book ID: \(rental.bookId), Active: \(rental.isActive)")
+            return rental.bookId == book.id && rental.isActive
         }
+        
+        print("Is book rented: \(isRented)")
+        return isRented
     }
     
     var body: some View {
@@ -59,6 +73,23 @@ struct BookDetailView: View {
                             
                             Text(book.fullContent)
                                 .font(.body)
+                            
+                            Button(action: {
+                                Task {
+                                    await bookContentViewModel.getBookAccess(bookId: book.id)
+                                    if bookContentViewModel.bookAccessUrl != nil {
+                                        showingReadingSheet = true
+                                    }
+                                }
+                            }) {
+                                Label("Read Book", systemImage: "book.fill")
+                                    .frame(maxWidth: .infinity)
+                                    .padding()
+                                    .background(Color.blue)
+                                    .foregroundColor(.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                            }
+                            .padding()
                         } else {
                             Text("Preview")
                                 .font(.headline)
@@ -175,6 +206,14 @@ struct BookDetailView: View {
         .sheet(isPresented: $showingFullContent) {
             PreviewContentView(content: book.previewContent)
         }
+        .sheet(isPresented: $showingReadingSheet) {
+            if let url = bookContentViewModel.bookAccessUrl {
+                ReadingWebView(url: url)
+            } else {
+                Text("Unable to load book content")
+                    .padding()
+            }
+        }
         // Add this to initialize rentDuration when the view appears
         .onAppear {
             rentDuration = book.minimumRent ?? 1
@@ -203,4 +242,4 @@ struct PreviewContentView: View {
             }
         }
     }
-} 
+}
